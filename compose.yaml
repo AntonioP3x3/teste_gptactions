@@ -1,0 +1,23 @@
+services:
+  projeto-y:
+    build: .
+    ports:
+      - "9000:7860"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HUGGINGFACEHUB_API_TOKEN=${HUGGINGFACEHUB_API_TOKEN}
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync+restart
+          path: ./
+          target: /app
+          ignore:
+            - .venv/
+        - action: rebuild
+          path: requirements.txt
+volumes:
+  myapp:
