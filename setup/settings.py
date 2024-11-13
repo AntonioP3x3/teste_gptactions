@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "django_filters",
     "corsheaders",
     "drf_spectacular",
     "modelos_usuarios"
@@ -60,10 +59,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = "setup.urls"
 
@@ -92,10 +88,10 @@ WSGI_APPLICATION = "setup.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "vella",
-        'USER': "vella_owner",
+        'NAME': "gptactions",
+        'USER': "gptactions_owner",
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': "ep-black-tooth-a510h8oe.us-east-2.aws.neon.tech",
+        'HOST': 'ep-jolly-pond-a5vscs3t.us-east-2.aws.neon.tech',
         'PORT': 5432,
         'OPTIONS': {
             'sslmode': 'require',
